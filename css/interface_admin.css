@@ -1,0 +1,40 @@
+#formulaire{
+    display : none;
+}
+#id_bien{
+    display:none;
+}
+.col{
+    margin-bottom: 5px;
+}
+#pageLinks{
+    margin-top: 5px;
+}
+#mode_tri{
+    width:17%;
+    margin-top: 15px; 
+    margin-bottom: 15px;
+}
+#contain_filter{
+    display:flex;
+    flex-direction: row;
+    align-items: center;  
+    margin-bottom: 15px;  
+}
+
+.input_filter{
+    width:207px;
+    height:30px;
+}
+#search_input{
+        display:flex;
+        flex-direction: row;
+        align-items: center;  
+        margin-bottom: 15px;  
+}
+input{
+    margin-right: 5px;
+}
+.filter{
+    display:none;
+}

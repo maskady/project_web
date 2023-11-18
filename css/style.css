@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    list-style: none;
+}
+a:hover{
+    text-decoration: none;
+}
+body{
+    font-family:'Courier New', Courier, monospace;
+}
+header{
+    height:100vh;
+    width:100%;
+    background-image: url(https://d36vnx92dgl2c5.cloudfront.net/cache/prod/Danielfeau/1/media/efd73dab4444bf4356a92be4a9a1c5d4.jpeg);
+    background-size: cover;
+}
+.bar_navigation{
+    position:absolute;
+    padding : 50px;
+    display : flex;
+    justify-content: space-between;
+    box-sizing:border-box;
+    width:100%;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.bar_navigation a {
+    color:black;
+}
+.bar_navigation .logo{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.bar_navigation .nav_liens ul{
+    display:flex;
+}
+.bar_navigation .nav_liens ul li{
+    margin-right : 25px;
+}
+.bar_navigation .nav_liens ul li:active a{
+    color : black;
+    font-weight: 600;
+}
+.bar_navigation .nav_liens ul li a{
+    padding : 6px 5px;
+}
+.bar_navigation .nav_liens ul li:hover a{
+    background-color: black;
+    color : white;
+    border-radius: 20px;
+    
+    /*rajouter un padding sur .bar-navigation a */
+}
+.menu{
+    position : absolute;
+    top : 50px;
+    left : 35px;
+    width:40px;
+    display : none;
+}
+.compte{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compte img{
+    width : 50px;
+    height : 50px;
+}
+
+
+@media screen and (max-width:900px){
+    .nav_liens{
+        position: absolute;
+        top:0px;
+        background-color:  rgba(0,0,0,0.2);
+        backdrop-filter: blur(7px);
+        width : 49%;
+        height:100vh;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -100%;
+        transition: all 0.5s ease;
+    }
+    .nav_liens ul{
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bar_navigation{
+        padding:0px;
+    }
+    .menu{
+        display:block;
+    }
+    .nav_liens ul li{
+        margin: 25px 0; 
+        font-size:1.2em;
+    }
+    .logo{
+        position : absolute;
+        top: 52px;
+        left:49%;
+    }
+    .compte{
+        position : absolute ;
+        top : 20px;
+        right : 35px;
+    }
+}
+.mobile-menu{
+    margin-left:0;
+}
+

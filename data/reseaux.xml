@@ -1,0 +1,18 @@
+<!-- FILEPATH: /home/florent/Téléchargements/projet_web_8_11/projet_web_version_1_11/projetweb/data/reseaux.xml -->
+
+<database>
+    <socialMedia>
+        <platform>
+            <name>instagram</name>
+            <link>https://www.instagram.com</link>
+        </platform>
+        <platform>
+            <name>facebook</name>
+            <link>https://www.facebook.com</link>
+        </platform>
+        <platform>
+            <name>twitter</name>
+            <link>https://www.twitter.com</link>
+        </platform>
+    </socialMedia>
+</database>

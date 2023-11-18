@@ -1,0 +1,17 @@
+<ADMINS>
+    <ADMIN>
+        <ID>admin1@gmail.com</ID>
+        <PASSWORD>8f8cc717a4040b695b56d335d4febf300a5b2ad4</PASSWORD>
+        <!--root1-->
+    </ADMIN>
+    <ADMIN>
+        <ID>admin2@gmail.com</ID>
+        <PASSWORD>c489933a16ee17604ba58a2bec7f3f4c2441f53f</PASSWORD>
+        <!--root2-->
+    </ADMIN>
+    <ADMIN>
+        <ID>admin3@gmail.com</ID>
+        <PASSWORD>44a84dc59333e65ac716a7f751c35e4328d78eae</PASSWORD>
+        <!--root3-->
+    </ADMIN>
+</ADMINS>

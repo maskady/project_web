@@ -1,0 +1,68 @@
+
+*{
+    margin:0px;
+    padding:0px;
+
+}
+header{
+    width:100%;
+    height:100vh;
+    background-image: url(https://d36vnx92dgl2c5.cloudfront.net/cache/prod/Danielfeau/1/media/efd73dab4444bf4356a92be4a9a1c5d4.jpeg);
+}
+.container{
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg);
+    background-color: #323342;
+    position : absolute;
+    top:35%;
+    left:35%;
+    width:30%;
+    height:30%;
+    border-radius: 15px;
+    padding : 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.input_login{
+    display: flex;
+    flex-direction: column;
+    padding : 5px;
+    width:100%;
+    height: 70%;
+    align-items: center;
+    justify-content: space-around;
+}
+#mail, #password{
+    width:50%;
+    height:25%;
+    border-radius: 6px;
+    border-style: none;
+    font-size: 1.3rem;
+}
+#div_button{
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:30%;
+    
+    padding:5px;
+    display: flex;
+}
+#button_login{
+    background-color: white;
+    width:30%;
+    height:40%;
+    color:black;
+    font-size: 1.3rem;
+    border-radius: 6px;
+    border: 1.8px solid white;
+    box-shadow: 10px 5px 5px black;
+    letter-spacing: 0.8px;
+}
+#button_login:hover{
+    background-color: rgb(228, 230, 228);
+}
+input:focus {
+    outline: none;
+}
+

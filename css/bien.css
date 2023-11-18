@@ -1,0 +1,36 @@
+.contain1{
+    background-color: white;
+    padding : 15px;
+    overflow: hidden;
+    position : absolute;
+    height : 60%;
+    width : 70%;
+    top : 20%;
+    left:15%; 
+    display:flex;
+    justify-content:space-between;
+    border-radius: 20px;
+}
+#picture img{
+    max-width: 100%;
+    height : 100%;  
+    border-radius: 20px;
+    
+}
+#picture{
+    overflow: hidden;
+
+}
+#content{
+    width:30%;
+    background-color: rgb(172, 169, 169);
+    border-radius: 20px;
+    padding : 15px;
+    letter-spacing: 1px;
+    
+}
+#content ul li{
+    font-size: 1.4rem;
+    /*espace les list items entre eux*/
+    margin-bottom: 10px;
+}
