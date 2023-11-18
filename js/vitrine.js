@@ -34,7 +34,7 @@ function fetchVitrine() {
         "</p><div id='prix_annonce'>" +
         biens[id].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue +
         "€" +
-        "<div style='display:flex;justify-content:flex-end;'>" + "<img src='./data/star-n-fold.png' class='star' data-value='" + id + "'id='" + id + "'></div>" +
+        "<div style='display:flex;justify-content:flex-end;'>" + "<img src='./data/star-n-fold.png' class='star' data-value='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "'id='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "'></div>" +
         "</div></div></div></div>";
     //id = Math.floor(Math.random() * biens.length);
     id = 2;
@@ -54,7 +54,7 @@ function fetchVitrine() {
         "<sup>e</sup> arrondissement" +
         "</p><div id='prix_annonce'>" +
         biens[id].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue +
-        "€<div style='display:flex;justify-content:flex-end;'>" + "<img src='./data/star-n-fold.png' class='star' data-value='" + id + "' id='" + id + "'></div>" +
+        "€<div style='display:flex;justify-content:flex-end;'>" + "<img src='./data/star-n-fold.png' class='star' data-value='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "' id='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "'></div>" +
         "</div></div></div></div></div>"
     vitrine.innerHTML = res;
     let stars = document.getElementsByClassName("star");
