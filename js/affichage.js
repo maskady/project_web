@@ -34,7 +34,7 @@ function construction(){
     let x = xmlDoc.getElementsByTagName("BIEN");
     page = "<div class='contain1'><div id = 'picture'><img src='"+
     x[id-1].getElementsByTagName("PHOTO")[0].childNodes[0].nodeValue+
-    "'style='width:100%'> "+
+    "'style='width:90%'> "+
     "</div ><div id='content' style='color:white;'>"+
     "<ul><li>Type du bien : "+
     x[id-1].getElementsByTagName("TYPE")[0].childNodes[0].nodeValue +
