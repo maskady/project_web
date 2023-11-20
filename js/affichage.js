@@ -32,10 +32,10 @@ function construction(){
     let xmlDoc = xmlhttp.responseXML;
     let page = "";
     let x = xmlDoc.getElementsByTagName("BIEN");
-    page = "<div class='contain1'><div id = 'picture'><img src='"+
+    page = "<div class='contain1'><div id = 'picture' style = 'width:70%';><img src='"+
     x[id-1].getElementsByTagName("PHOTO")[0].childNodes[0].nodeValue+
     "'style='width:90%'> "+
-    "</div ><div id='content' style='color:white;'>"+
+    "</div ><div id='content' style='color:white;width:30%;'>"+
     "<ul><li>Type du bien : "+
     x[id-1].getElementsByTagName("TYPE")[0].childNodes[0].nodeValue +
     " </li>"+

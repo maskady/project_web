@@ -66,11 +66,11 @@ function showPageLinks() {
     let x = xmlDoc.getElementsByTagName("BIEN");
     
     let divpl = document.getElementById("pageLinks");
-    divpl.style.display = "block";
+    divpl.style.display = "flex";
     let i;
-    let res = "Pages : ";
+    let res = "Pages :  ";
     for (i = 1; i <= nbPage; i++) {
-        res += "<input type='button' class = 'btn btn-outline-primary' style='margin-right:5px;'onclick='loadPage(" + i + ")' value=" + i + ">";
+        res += "<input type='button' class = 'btn btn-outline-secondary' style='margin-left:5px;'onclick='loadPage(" + i + ")' value=" + i + ">";
     }
     divpl.innerHTML = res;
 }

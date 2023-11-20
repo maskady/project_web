@@ -72,10 +72,10 @@ function fetchData(bool) {//Prend en parametre un boolean filtre
             "</td><td class='text-center'>" +
             x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue +
             "</td>" +
-            "<td class='text-center'><button type='button' style='margin-right:15px;' class = 'btn btn-outline-primary' onclick='editLigne(" +
+            "<td class='text-center'><button type='button' style='margin-right:15px;' class = 'btn btn-outline-secondary' onclick='editLigne(" +
             x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
             ")'>Editer</button>" +
-            "<button type='button' class = 'btn btn-outline-primary' onclick='deleteLigne(" +
+            "<button type='button' class = 'btn btn-outline-secondary' onclick='deleteLigne(" +
             parseInt(x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue) +
             ")' >Supprimer</button>" +
             "</td>" +
@@ -314,7 +314,7 @@ function fetchAllEditData(idligne) {
                 "</td><td class='text-center'>" +
                 "<input type='text' id='arrondissement_edit' class='form-control'>" +
                 "</td>" +
-                "<td><button type='button' style='margin-right:15px;' class = 'btn btn-outline-primary' onclick='updateLigne(" +
+                "<td><button type='button' style='margin-right:15px;' class = 'btn btn-outline-secondary' onclick='updateLigne(" +
                 x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
                 ")'>Sauvegarder les modifications</button>" +
                 "</td>" +
@@ -349,10 +349,10 @@ function fetchAllEditData(idligne) {
                 "</td><td class='text-center'>" +
                 x[i].getElementsByTagName("ARRONDISSEMENT")[0].childNodes[0].nodeValue +
                 "</td>" +
-                "<td><button type='button' style='margin-right:15px;' class = 'btn btn-outline-primary' onclick='editLigne(" +
+                "<td><button type='button' style='margin-right:15px;' class = 'btn btn-outline-secondary' onclick='editLigne(" +
                 x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
                 ")'>Editer</button>" +
-                "<button type='button' class = 'btn btn-outline-primary' onclick='deleteLigne(" +
+                "<button type='button' class = 'btn btn-outline-secondary' onclick='deleteLigne(" +
                 parseInt(x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue) +
                 ")'>Supprimer</button>" +
                 "</td>" +
@@ -563,7 +563,7 @@ function showPageLinks() {
     let i;
     let res = "Pages : ";
     for (i = 1; i <= nbPage; i++) {
-        res += "<input type='button' class = 'btn btn-outline-primary' style='margin-right:5px;'onclick='loadPage(" + i + ")' value=" + i + ">";
+        res += "<input type='button' class = 'btn btn-outline-secondary' style='margin-right:5px;'onclick='loadPage(" + i + ")' value=" + i + ">";
     }
     divpl.innerHTML = res;
 }
