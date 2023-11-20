@@ -73,7 +73,7 @@ header{
 }
 
 
-@media screen and (max-width:900px){
+@media all and (max-width:900px){
     .nav_liens{
         position: absolute;
         top:0px;
