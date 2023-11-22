@@ -34,6 +34,7 @@ Les logins possible sont :
 }
 
 Sur la page Administrateur, dans les filtres, il est nécéssaire d'appuyer 2 fois sur les boutons pour que l'affichage le prenne en compte (erreur non résolu)
+Idem sur la page utilisateur (utilisation des mêmes fonctions légèrement modifiés)
 
 Mise en valeur de certains éléments :
 -Format mobile permet d'afficher un menu de navigation hamburger 
@@ -43,4 +44,9 @@ Mise en valeur de certains éléments :
 -Si suppression de beaucoup de bien, la pagination est mise à jour
 -Si ajout de beaucoup de bien, la pagination est mise à jour 
 -Recherche possible avec ElasticLunr. Exemple avec "appartement"
--
+-Page d'estimation d'un bien
+    -Calcul effectué à partir des prix au m2 en fonction des arrondissements en 2021
+    -L'estimation est majoré si c'est une maison
+    -L'estimation est majoré si dernier ou avant dernier étage de l'immeuble
+    -L'estimation est minoré si rez de chaussée
+
