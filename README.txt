@@ -34,3 +34,13 @@ Les logins possible sont :
 }
 
 Sur la page Administrateur, dans les filtres, il est nécéssaire d'appuyer 2 fois sur les boutons pour que l'affichage le prenne en compte (erreur non résolu)
+
+Mise en valeur de certains éléments :
+-Format mobile permet d'afficher un menu de navigation hamburger 
+-Hash du mot de passe
+-Vérification du passage par login.html lors du chargement de gestion.html. Si suppression des informations de connexion dans les clés URL, redirection vers la page d'accueil
+-Edition des biens dans le tableau
+-Si suppression de beaucoup de bien, la pagination est mise à jour
+-Si ajout de beaucoup de bien, la pagination est mise à jour 
+-Recherche possible avec ElasticLunr. Exemple avec "appartement"
+-

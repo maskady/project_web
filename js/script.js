@@ -324,7 +324,7 @@ function fetchAllEditData(idligne) {
             table += "<tr><td class='text-center'>" +
                 x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
                 "</td><td class='text-center'>" + 
-                "NULL</td><td class='text-center'>"+
+                "Pas d'affichage pour lisibilité</td><td class='text-center'>"+
                 x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue +
                 "</td><td class='text-center'>" +
                 x[i].getElementsByTagName("NB_PIECES")[0].childNodes[0].nodeValue +
