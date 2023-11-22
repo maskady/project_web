@@ -20,7 +20,7 @@
         <button type="button" class='btn btn-outline-secondary' onclick="showFilter()" id="btnShowFilter">Afficher le formulaire de tri</button>
         <button type="button" class='btn btn-outline-secondary' onclick="saveBook()" id="btnSave">Enregistrer le fichier</button>
         <button type="button" class='btn btn-outline-secondary' onclick="fetchAllData()">Afficher l'entièreté des données</button>
-        <div class="filter" >
+        <div class="filter" style="display:none;">
             <div id="mode_tri">
                 <select id="tri" class="form-select"> <!--class="form-select" size="3" style="width:20%;"-->
                     <option value="-1">--Sélectionnez le type de tri (base)--</option>
@@ -81,7 +81,7 @@
 
         </table>
         <br><br>
-        <div style="max-width:30%;margin-left: 10%;" id="formulaire">
+        <div style="max-width:30%;margin-left: 10%; display: none;" id="formulaire">
             <div class="row">
                 <div class="col">
                     <label for="photo">Lien de la photo :</label>
@@ -190,7 +190,7 @@
                 bien</button>
         </div>
     </div>
-    <div class="form-group"><input type="text" id="id_bien" value="-1"></div>
+    <div class="form-group" style="display: none;"><input type="text" id="id_bien" value="-1"></div>
 
     </div>
 
