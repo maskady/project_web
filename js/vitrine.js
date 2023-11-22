@@ -15,9 +15,9 @@ function loadXMLDoc() {
 function fetchVitrine() {
     let vitrine = document.getElementById("vitrine");
     let biens = xmlDoc.getElementsByTagName("BIEN");
-    let id = 1;
+    //let id = 1;//test qui permet de vérifier que les étoiles sont bien mises à jour
     //Variante avec des biens aléatoires
-    //let id = Math.floor(Math.random() * biens.length);
+    let id = Math.floor(Math.random() * biens.length);
     let res = "<div class='row'><div class='col-md-6 ' id='card'><a href='./html/bien.html?bienid=" +
         biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
         "'><div class='card mb-4 shadow-sm rounded'>" +
@@ -36,8 +36,8 @@ function fetchVitrine() {
         "€" +
         "<div style='display:flex;justify-content:flex-end;'>" + "<img src='./data/star-n-fold.png' class='star' data-value='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "'id='" + biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + "'></div>" +
         "</div></div></div></div>";
-    //id = Math.floor(Math.random() * biens.length);
-    id = 2;
+    id = Math.floor(Math.random() * biens.length);
+    //id = 2; //test qui permet de vérifier que les étoiles sont bien mises à jour
     res += "<div class='col-md-6 ' id='card'><a href='./html/bien.html?bienid=" +
         biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
         "'>" +
