@@ -12,22 +12,6 @@ function loadXMLDoc() {
     xmlhttp.open("GET", "../data/bdd2.xml", true);
     xmlhttp.send();
 }
-//Voici la structure d'un bien dans la base XML
-/* <ID>2</ID>
-        <PHOTO>https://images.pexels.com/photos/2030037/pexels-photo-2030037.jpeg</PHOTO>
-        <TYPE>maison</TYPE>
-        <PRIX>900000</PRIX>
-        <NB_PIECES>5</NB_PIECES>
-        <SURFACE>180</SURFACE>
-        <NB_BAINS>3</NB_BAINS>
-        <T_SEJOUR>75</T_SEJOUR>
-        <ASCENSEUR>0</ASCENSEUR>
-        
-        <DIGICODE>0</DIGICODE>
-        <GARAGE>1</GARAGE>
-        <DATE_CREATION>2008</DATE_CREATION>
-        <NB_ETAGES>2</NB_ETAGES>
-        <ARRONDISSEMENT>8</ARRONDISSEMENT> */
 function construction(){
     let xmlDoc = xmlhttp.responseXML;
     let page = "";

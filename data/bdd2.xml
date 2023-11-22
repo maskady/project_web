@@ -3,7 +3,7 @@
         <ID>1</ID>
         <PHOTO>https://images.pexels.com/photos/6077368/pexels-photo-6077368.jpeg</PHOTO>
         <TYPE>Appartement</TYPE>
-        <PRIX>420 000</PRIX>
+        <PRIX>420000</PRIX>
         <NB_PIECES>3</NB_PIECES>
         <SURFACE>70</SURFACE>
         <NB_BAINS>2</NB_BAINS>
@@ -19,7 +19,7 @@
         <ID>2</ID>
         <PHOTO>https://images.pexels.com/photos/2030037/pexels-photo-2030037.jpeg</PHOTO>
         <TYPE>Maison</TYPE>
-        <PRIX>900 000</PRIX>
+        <PRIX>900000</PRIX>
         <NB_PIECES>5</NB_PIECES>
         <SURFACE>180</SURFACE>
         <NB_BAINS>3</NB_BAINS>
@@ -36,7 +36,7 @@
         <ID>3</ID>
         <PHOTO>https://images.pexels.com/photos/5998120/pexels-photo-5998120.jpeg</PHOTO>
         <TYPE>Appartement</TYPE>
-        <PRIX>320 000</PRIX>
+        <PRIX>320000</PRIX>
         <NB_PIECES>2</NB_PIECES>
         <SURFACE>50</SURFACE>
         <NB_BAINS>1</NB_BAINS>
@@ -53,7 +53,7 @@
         <ID>4</ID>
         <PHOTO>https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg?auto=compress</PHOTO>
         <TYPE>Maison</TYPE>
-        <PRIX>1250 000</PRIX>
+        <PRIX>1250000</PRIX>
         <NB_PIECES>6</NB_PIECES>
         <SURFACE>140</SURFACE>
         <NB_BAINS>2</NB_BAINS>
@@ -70,7 +70,7 @@
         <ID>5</ID>
         <PHOTO>https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress</PHOTO>
         <TYPE>Appartement</TYPE>
-        <PRIX>350 000</PRIX>
+        <PRIX>350000</PRIX>
         <NB_PIECES>4</NB_PIECES>
         <SURFACE>75</SURFACE>
         <NB_BAINS>2</NB_BAINS>
@@ -87,7 +87,7 @@
         <ID>6</ID>
         <PHOTO>https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress</PHOTO>
         <TYPE>Maison</TYPE>
-        <PRIX>1 100 000</PRIX>
+        <PRIX>1100000</PRIX>
         <NB_PIECES>5</NB_PIECES>
         <SURFACE>160</SURFACE>
         <NB_BAINS>2</NB_BAINS>
@@ -105,7 +105,7 @@
         <PHOTO>https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress</PHOTO>
         <TYPE>Appartement</TYPE>
         <PRIX>280000</PRIX>
-                <NB_PIECES>4</NB_PIECES>
+        <NB_PIECES>4</NB_PIECES>
         <SURFACE>80</SURFACE>
         <NB_BAINS>1</NB_BAINS>
         <T_SEJOUR>35</T_SEJOUR>

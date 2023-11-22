@@ -39,8 +39,44 @@
             align-items: center;
             margin : 10px;
         }
+        .filter{
+            display : flex;
+            width : 100%;
+            height :20vh;
+            align-items: center;
+            flex-direction: column;
+        }
+        #contain_filter{
+            display : flex;
+            width : 60%;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        #search_input{
+            display : flex;
+            width : 80%;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: row;
+        }
+        input{
+            max-width: 200px;
+        }
+        #mode_tri{
+            width:100%;
+            display: flex;
+            justify-content: flex-start;
+            
+        }
+        #first_line{
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            padding:20px;
+            margin-bottom: 50px;
+        }
     </style>
-
 </head>
 <body onload="loadBuyPage(),loadSocialDoc()">
     
@@ -59,6 +95,49 @@
     </nav>
     <header><img href="../data/background.jpeg"></header>
     
+    <div class="filter">
+        <div id="first_line">
+            <div id="mode_tri">
+                <select id="tri" class="form-select"> <!--class="form-select" size="3" style="width:20%;"-->
+                    <option value="-1">--Type de tri--</option>
+                    <option value="0">Croissant</option>
+                    <option value="1">Décroissant</option>
+                </select>
+            </div>
+            <div id="search_input">
+                <input class="input_filter form-control" id="search_elasticlunr" placeholder="Recherche étendue" style="margin-right: 15px;">
+                <button type="button" class="btn btn-outline-primary" onclick="searchWithElasticLunr()">Recherche étendue avec ElasticLunr</button>
+            </div>
+        </div>
+        
+        <div id="contain_filter">
+            <input class="input_filter form-control" id="min_price" value="0" placeholder="Prix minimum">
+            <input class="input_filter form-control" id="max_price" value="" placeholder="Prix maximum" >
+            <select name="arrondissement" id="select_arrondissement" class="form-select" style="width:17%;margin-right: 5px;">
+                <!--class="form-select" size="3" style="width:20%;"-->
+                <option value="-1">--Sélectionnez votre arrondissement--</option>
+                <option value="1">1<sup>er</sup> arrondissement</option>
+                <option value="2">2<sup>e</sup> arrondissement</option>
+                <option value="3">3<sup>e</sup> arrondissement</option>
+                <option value="4">4<sup>e</sup> arrondissement</option>
+                <option value="5">5<sup>e</sup> arrondissement</option>
+                <option value="6">6<sup>e</sup> arrondissement</option>
+                <option value="7">7<sup>e</sup> arrondissement</option>
+                <option value="8">8<sup>e</sup> arrondissement</option>
+                <option value="9">9<sup>e</sup> arrondissement</option>
+                <option value="10">10<sup>e</sup> arrondissement</option>
+                <option value="11">11<sup>e</sup> arrondissement</option>
+                <option value="12">12<sup>e</sup> arrondissement</option>
+                <option value="13">13<sup>e</sup> arrondissement</option>
+                <option value="14">14<sup>e</sup> arrondissement</option>
+                <option value="15">15<sup>e</sup> arrondissement</option>
+                <option value="16">16<sup>e</sup> arrondissement</option>
+            </select>
+            <button type="button" class="btn btn-outline-primary" onclick="filterData()">Filtrer les biens</button>
+        </div>
+        
+
+    </div>
     <div class="main" id="container" >
         
     </div>
@@ -95,5 +174,7 @@
     <script src="../js/menu.js"></script>
     <script src="../js/scripts.js"></script>
     <script src="../js/achat.js"></script>
+    <script src="../js/elasticlunr.js"></script>
+    <script src="../js/json.js"></script>
 </body>
 </html>

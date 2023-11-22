@@ -1,25 +1,39 @@
 let xmlhttp = new XMLHttpRequest();
+let xmlDoc;
 let nbPage = 0;
 let pageSize = 9;
 let startIndex = 0;
 let endIndex = 0;
 let page = 1;
 let sFav = new Set();
+let filter = false;
+let xmlDoc2 = new DOMParser().parseFromString("<CATALOGUE></CATALOGUE>", "text/xml");
+
 function loadBuyPage() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            fetchData();
+            xmlDoc = xmlhttp.responseXML;
+            fetchData(false);
             showPageLinks();
+            let id_max_tab = max_price(0);
+            set_max(id_max_tab);
         }
     };
     xmlhttp.open("GET", "../data/bdd2.xml", true);
     xmlhttp.send();
 }
-function fetchData(){
+function fetchData(bool){
     let i;
     let xmlDoc = xmlhttp.responseXML;
     let table = "<div class='container py-5 bg-light'><div class='row'>";
-    let biens = xmlDoc.getElementsByTagName("BIEN");
+    let biens;
+    if (bool) {
+        biens = xmlDoc2.getElementsByTagName("BIEN");
+    }
+    else {
+        biens = xmlDoc.getElementsByTagName("BIEN");
+    }
+    filter = bool;
     nbPage = Math.ceil(biens.length / pageSize);
     //Calculer startIndex et endIndex    
     startIndex = (page - 1) * pageSize;
@@ -27,9 +41,11 @@ function fetchData(){
     if (endIndex > biens.length) {
         endIndex = biens.length;
     }
+    showPageLinks();
     for (i = startIndex; i < endIndex; i++) {
-        console.log(i);
+        
         let id = biens[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue;
+        console.log(id);
         table += "<div class='col-md-4 col-sm-6 ' id='card'><a href='./bien.html?bienid=" +
                     id +
                     "'><div class='card mb-4 shadow-sm rounded'>" +
@@ -61,6 +77,42 @@ function fetchData(){
     }
     initSetFavoriteBiens()
 }
+
+function filterData() {
+    xmlDoc2 = new DOMParser().parseFromString("<CATALOGUE></CATALOGUE>", "text/xml");
+    let min_price = parseInt(document.getElementById("min_price").value);
+    let max_price = parseInt(document.getElementById("max_price").value);
+    let arrondissement = parseInt(document.getElementById("select_arrondissement").value);
+    
+    let i;
+    let x = xmlDoc.getElementsByTagName("BIEN");
+    //permet si aucun arrondissement n'est selectionner de selectionner tous les biens
+    let verif_arrondissement = false;
+    if (arrondissement == -1) {
+        verif_arrondissement = true;
+    }
+    //
+    
+    
+    for (i = 0; i < x.length; i++) {
+        if (verif_arrondissement) {
+            arrondissement = x[i].getElementsByTagName("ARRONDISSEMENT")[0].childNodes[0].nodeValue;
+        }
+        
+        if (parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue) < max_price && min_price < parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue) && x[i].getElementsByTagName("ARRONDISSEMENT")[0].childNodes[0].nodeValue == arrondissement ) {
+            console.log(parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue));
+            let clone = x[i].cloneNode(true);
+            xmlDoc2.getElementsByTagName("CATALOGUE")[0].appendChild(clone);
+        }
+    }
+    
+    if (parseInt(document.getElementById("tri").value) != -1) {
+        tri();
+    }   
+    
+    fetchData(true);
+}
+
 function showPageLinks() {
     let xmlDoc = xmlhttp.responseXML;
     let x = xmlDoc.getElementsByTagName("BIEN");
@@ -117,4 +169,102 @@ function initSetFavoriteBiens() {
             
         }
     }
+}
+
+function init_elasticLunr(){
+    let index = elasticlunr();
+    index.addField('TYPE');
+    index.addField('PRIX');
+    index.setRef('ID');
+    for (let i = 0; i < doc1.length; i++) {
+        index.addDoc(doc1[i]);
+    }
+    return index;
+}
+function searchWithElasticLunr() {
+    let index = init_elasticLunr();
+    let biens = xmlDoc.getElementsByTagName("BIEN");
+    let results = index.search(document.getElementById("search_elasticlunr").value);
+    xmlDoc2 = new DOMParser().parseFromString("<CATALOGUE></CATALOGUE>", "text/xml");
+    for (let i = 0; i < results.length; i++) {
+        let id_bien = findID(results[i].ref);
+        let clone = biens[id_bien].cloneNode(true);
+        xmlDoc2.getElementsByTagName("CATALOGUE")[0].appendChild(clone);
+    }
+    
+    fetchData(true);
+    
+}
+
+function findID(search, doc_search_filter) {
+    let doc;
+    if (doc_search_filter) {
+        doc = xmlDoc2;
+    }
+    else {
+        doc = xmlhttp.responseXML;
+    }
+    let x = doc.getElementsByTagName("BIEN");
+    for (i = 0; i < x.length; i++) {
+        if (x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue == search) {
+            return i;
+        }
+    }
+    return -1;
+}
+function tri() {
+    let biens = xmlDoc2.getElementsByTagName("BIEN");
+    if (parseInt(document.getElementById("tri").value) == 1) {
+        let i;
+        for (i = 0; i < biens.length; i++) {
+            let indice_a_changer = max_price(i);
+            let ref_node = x[i];
+            let node_a_changer = x[indice_a_changer];
+            let node_parent = x[i].parentNode;
+            node_parent.insertBefore(node_a_changer, ref_node);
+        }
+    }
+    else {
+        let i;
+        for (i = 0; i < biens.length; i++) {
+            let indice_a_changer = min_price(i);
+            let ref_node = x[i];
+            let node_a_changer = x[indice_a_changer];
+            let node_parent = x[i].parentNode;
+            node_parent.insertBefore(node_a_changer, ref_node);
+        }
+    }
+}
+
+
+function max_price(indice) {
+    let price = 0;
+    let id_price_max = 0;
+    x = xmlDoc.getElementsByTagName("BIEN");
+    let i;
+    for (i = indice; i < x.length; i++) {
+        if (parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue) > price) {
+            price = parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue);
+            id_price_max = i;
+        }
+    }
+    return id_price_max;
+}
+function min_price(indice) {
+    let price = 100000000000;
+    let id_price_min = 0;
+    x = xmlDoc.getElementsByTagName("BIEN");
+    let i;
+    for (i = indice; i < x.length; i++) {
+        if (parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue) < price) {
+            price = parseInt(x[i].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue);
+            id_price_min = i;
+        }
+    }
+    return id_price_min;
+}
+
+function set_max(id) {
+    x = xmlDoc.getElementsByTagName("BIEN");
+    document.getElementById("max_price").value = x[id].getElementsByTagName("PRIX")[0].childNodes[0].nodeValue;
 }
