@@ -130,7 +130,7 @@ function loadPage(pageNumber) {
     //Mettre à jour la valeur de page en fonction de pageNumber
     page = pageNumber;
     //Appeler la fonction fetchData
-    fetchData();
+    fetchData(filter);
 }
 function switch_image(star) {
     if (star.src.endsWith("star-n-fold.png")) {
@@ -163,7 +163,7 @@ function initSetFavoriteBiens() {
         let myArr = favs.split(",").map(Number);
         for (let i = 0; i < myArr.length; i++) {
             sFav.add(myArr[i].toString());
-            if(myArr[i]>=startIndex && myArr[i]<endIndex){
+            if(myArr[i]>=startIndex && myArr[i]<endIndex && document.getElementById(myArr[i].toString()) != null){ //Vérifie que l'indice des biens favoris de l'utilisateur sont dans la page affichée
                 document.getElementById(myArr[i].toString()).src = "../data/star-fold.png";
             }
             
