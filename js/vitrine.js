@@ -2,11 +2,11 @@ let xmlhttp = new XMLHttpRequest();
 let xmlDoc;
 let sFav = new Set();
 function loadXMLDoc() {
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function () { 
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             xmlDoc = xmlhttp.responseXML;
             fetchVitrine();
-            
+
         }
     };
     xmlhttp.open("GET", "./data/bdd2.xml", true);
@@ -39,7 +39,7 @@ function fetchVitrine() {
     //id = Math.floor(Math.random() * biens.length);
     id = 2;
     res += "<div class='col-md-6 ' id='card'><a href='./html/bien.html?bienid=" +
-        biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue + 
+        biens[id].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
         "'>" +
         "<div class='card mb-4 shadow-sm rounded'>" +
         "<img src='" +
@@ -64,7 +64,7 @@ function fetchVitrine() {
     star2.addEventListener('click', () => switch_image(star2));
     initSetFavoriteBiens()
 }
-function switch_image(star){
+function switch_image(star) {
     if (star.src.endsWith("star-n-fold.png")) {
         star.src = "./data/star-fold.png";
         setFavorite(star);
@@ -74,24 +74,26 @@ function switch_image(star){
     }
 }
 
-
-function setFavorite(ev){
+//Fonction qui permet de mettre à jour le localStorage
+function setFavorite(ev) {
     if (ev.src.endsWith("star-fold.png")) {
-        sFav.add(ev.getAttribute('data-value').toString());        
+        sFav.add(ev.getAttribute('data-value').toString());
     } else {
-        sFav.delete(ev.getAttribute('data-value').toString());     
-        
+        sFav.delete(ev.getAttribute('data-value').toString());
+
     }
     localStorage.removeItem("favorites");
-    if (sFav.size != 0){
+    if (sFav.size != 0) {
         let fchaine = Array.from(sFav).join(',');
-        localStorage.setItem("favorites",fchaine);
+        localStorage.setItem("favorites", fchaine);
     }
 }
+
+//Fonction qui permet de mettre à jour les étoiles
 function initSetFavoriteBiens() {
     if (localStorage.getItem("favorites") != null) {
         let favs = localStorage.getItem("favorites");
-        let myArr = favs.split(",").map(Number);
+        let myArr = favs.split(",").map(Number); //map(Number) permet de convertir les éléments du tableau en nombre
         for (let i = 0; i < myArr.length; i++) {
             sFav.add(myArr[i].toString());
             document.getElementById(myArr[i].toString()).src = "./data/star-fold.png";
