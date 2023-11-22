@@ -33,8 +33,11 @@ Les logins possible sont :
     root3
 }
 
-Sur la page Administrateur, dans les filtres, il est nécéssaire d'appuyer 2 fois sur les boutons pour que l'affichage le prenne en compte (erreur non résolu)
-Idem sur la page utilisateur (utilisation des mêmes fonctions légèrement modifiés)
+List bug non résolu:
+
+    -Sur la page Administrateur, pour l'utilisation du tri il faut cliquer 2 fois 
+    -Idem sur la page utilisateur (utilisation des mêmes fonctions légèrement modifiés)
+    -Bug Bootstrap sur achat.html -> select item ne prenne pas le style comme sur gestion.html
 
 Mise en valeur de certains éléments :
 -Format mobile permet d'afficher un menu de navigation hamburger 
