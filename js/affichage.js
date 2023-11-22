@@ -16,6 +16,30 @@ function construction(){
     let xmlDoc = xmlhttp.responseXML;
     let page = "";
     let x = xmlDoc.getElementsByTagName("BIEN");
+    //Transformation des données
+    let code ;
+    let ascenseur;
+    let garage;
+    if (x[id-1].getElementsByTagName("DIGICODE")[0].childNodes[0].nodeValue == "0"){
+        code = "Non";
+    }
+    else{
+        code = "Oui";
+    }
+    if (x[id-1].getElementsByTagName("ASCENSEUR")[0].childNodes[0].nodeValue == "0"){
+        ascenseur = "Non";
+    }
+    else{
+        ascenseur = "Oui";
+    }
+    if (x[id-1].getElementsByTagName("GARAGE")[0].childNodes[0].nodeValue == "0"){
+        garage = "Non";
+    }
+    else{
+        garage = "Oui";
+    }
+    //Fin de la transformation
+
     page = "<div class='contain1'><div id = 'picture' style = 'width:70%';><img src='"+
     x[id-1].getElementsByTagName("PHOTO")[0].childNodes[0].nodeValue+
     "'style='width:90%'> "+
@@ -43,13 +67,13 @@ function construction(){
     x[id-1].getElementsByTagName("NB_ETAGES")[0].childNodes[0].nodeValue+
     "</li>"+
     "<li>Ascenseur : "+
-    x[id-1].getElementsByTagName("ASCENSEUR")[0].childNodes[0].nodeValue+
+    ascenseur +
     "</li>"+
     "<li>Garage : "+
-    x[id-1].getElementsByTagName("GARAGE")[0].childNodes[0].nodeValue+
+    garage+
     "</li>"+
     "<li>Code d'accès : "+
-    x[id-1].getElementsByTagName("DIGICODE")[0].childNodes[0].nodeValue+
+    code +
     "</li>"+
     "<li>Année de construction : "+
     x[id-1].getElementsByTagName("DATE_CREATION")[0].childNodes[0].nodeValue+
